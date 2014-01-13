@@ -49,7 +49,7 @@ function gumby_status_messages($variables) {
   foreach (drupal_get_messages($display) as $type => $messages) {
     $class = (isset($status_class[$type])) ? '' . $status_class[$type] : '';
     $output .= "<div class=\"alert alert-block $class\">\n";
-    $output .= "  <a class=\"close\" data-dismiss=\"alert\" href=\"#\"><i class=\"icon-cancel-squared scale-3x\"></i></a>\n";
+    $output .= "  <a class=\"close\" data-dismiss=\"alert\" href=\"#\"><i class=\"icon-cancel-squared scale-lg\"></i></a>\n";
 
     if (!empty($status_heading[$type])) {
       $output .= '<h4 class="element-invisible">' . $status_heading[$type] . "</h4>\n";
