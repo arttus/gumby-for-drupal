@@ -3,7 +3,6 @@
 //import some drupal fixes
 @import "drupal";
 
-@import "arttus";
 /* Icon Styles */
 
 //scale stuff
@@ -24,36 +23,6 @@
 .scale-5x {
 	font-size: 5em;
 }
-
-/*
-.xxxlarge{
-	@include font-size($xxxlarge);
-}
-.reallybig{
-	@include font-size($reallybig);
-}
-.tremendous{
-	@include font-size($tremendous);
-}
-.absurd{
-	@include font-size($absurd);
-}
-.xlarge{
-	@include font-size($xlarge); 
-}
-.larger{
-	@include font-size($larger);
-}
-.large{
-	@include font-size($large);
-}
-.med{
-	@include font-size($med);
-}
-.norm{
-	@include font-size($norm);﻿
-}
-*/
 
 //rotate stuff
 .rotate-90 {
