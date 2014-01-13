@@ -1,0 +1,101 @@
+// Your custom SCSS should be written here...
+
+//import some drupal fixes
+@import "drupal";
+
+@import "arttus";
+/* Icon Styles */
+
+//scale stuff
+.scale-lg {
+	font-size: 1.3333333333333333em;
+	line-height: 0.75em;
+	vertical-align: -15%;
+}
+.scale-2x {
+	font-size: 2em;
+}
+.scale-3x {
+	font-size: 3em;
+}
+.scale-4x {
+	font-size: 4em;
+}
+.scale-5x {
+	font-size: 5em;
+}
+
+/*
+.xxxlarge{
+	@include font-size($xxxlarge);
+}
+.reallybig{
+	@include font-size($reallybig);
+}
+.tremendous{
+	@include font-size($tremendous);
+}
+.absurd{
+	@include font-size($absurd);
+}
+.xlarge{
+	@include font-size($xlarge); 
+}
+.larger{
+	@include font-size($larger);
+}
+.large{
+	@include font-size($large);
+}
+.med{
+	@include font-size($med);
+}
+.norm{
+	@include font-size($norm);﻿
+}
+*/
+
+//rotate stuff
+.rotate-90 {
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	-ms-transform: rotate(90deg);
+	-o-transform: rotate(90deg);
+	transform: rotate(90deg);
+}
+
+.rotate-180 {
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+	-webkit-transform: rotate(180deg);
+	-moz-transform: rotate(180deg);
+	-ms-transform: rotate(180deg);
+	-o-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+.rotate-270 {
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+	-webkit-transform: rotate(270deg);
+	-moz-transform: rotate(270deg);
+	-ms-transform: rotate(270deg);
+	-o-transform: rotate(270deg);
+	transform: rotate(270deg);
+}
+
+.flip-horizontal {
+	filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1);
+	-webkit-transform: scale(-1, 1);
+	-moz-transform: scale(-1, 1);
+	-ms-transform: scale(-1, 1);
+	-o-transform: scale(-1, 1);
+	transform: scale(-1, 1);
+}
+
+//spin stuff
+.spin {
+	-webkit-animation: spin 2s infinite linear;
+	-moz-animation: spin 2s infinite linear;
+	-o-animation: spin 2s infinite linear;
+	animation: spin 2s infinite linear;
+}

@@ -1,0 +1,3 @@
+.breadcrumb { height: 30px; }
+.breadcrumb li { float: left; }
+.breadcrumb li .divider { padding: 0 10px; }

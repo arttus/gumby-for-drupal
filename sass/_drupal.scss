@@ -1,0 +1,19 @@
+//overide custom drupal styles
+.breadcrumb{
+	height: 30px;
+	clear:both;
+	li{
+		float:left;
+		.divider{
+			padding:0 10px;
+		}
+	}
+}
+
+button.btn{
+	padding: 0 10px!important;
+}
+
+div.error {
+	background-image: none!important;
+}

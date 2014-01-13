@@ -1,0 +1,49 @@
+name        = Gumby
+description = A Drupal theme with Gumby and SASS
+screenshot  = screenshot.png
+core        = 7.x
+
+; //CSS - General
+; remove default drupal styles if you want to go fully gumbifed
+;stylesheets[all][]     = /modules/system/system.menus.css
+;stylesheets[all][]     = /modules/system/system.theme.css
+;stylesheets[all][]     = /modules/system/system.messages.css
+;stylesheets[all][]     = //modules/system/system.base.css
+
+; //ADD GUMBY
+stylesheets[all][]     = css/gumby.css
+
+; //Javascript
+; //Include gumby.js followed by UI modules.
+; //Or concatenate and minify into a single file
+;scripts[] = js/libs/jquery-1.10.1.min.js //we suggest using the latest jquery_update-7.x-2.x-dev instead
+
+scripts[] = js/libs/jquery.mobile.custom.min.js
+scripts[] = js/libs/modernizr-2.6.2.min.js
+scripts[] = js/libs/gumby.js 
+scripts[] = js/libs/ui/gumby.retina.js 
+scripts[] = js/libs/ui/gumby.fixed.js 
+scripts[] = js/libs/ui/gumby.skiplink.js 
+scripts[] = js/libs/ui/gumby.toggleswitch.js 
+scripts[] = js/libs/ui/gumby.checkbox.js 
+scripts[] = js/libs/ui/gumby.radiobtn.js 
+scripts[] = js/libs/ui/gumby.tabs.js 
+scripts[] = js/libs/ui/gumby.navbar.js 
+scripts[] = js/libs/ui/gumby.inview.js
+scripts[] = js/libs/ui/gumby.comments.js
+scripts[] = js/libs/ui/jquery.validation.js 
+scripts[] = js/libs/gumby.init.js 
+
+
+;//gumby.min.js contains gumby.js, all UI modules and gumby.init.js
+;scripts[] = js/libs/gumby.min.js
+scripts[] = js/plugins.js 
+scripts[] = js/main.js 
+
+; //Regions
+regions[content]      = Content
+regions[footer]       = Footer
+
+; //Plugins
+plugins[panels][layouts] = plugins
+plugins[panels][styles] = plugins
