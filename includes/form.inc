@@ -231,6 +231,7 @@ function gumby_preprocess_button(&$vars) {
       t('Clear all caches') => 'primary pretty rounded medium',
       t('Enable and save') => 'primary pretty rounded medium',
       t('Disable and save') => 'warning pretty rounded medium',
+      t('Download these updates') => 'warning pretty rounded medium',      
       t('Re-index site') => 'primary pretty rounded medium',
       
            //generals
