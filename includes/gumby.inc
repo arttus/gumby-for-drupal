@@ -167,7 +167,7 @@ function gumby_gumby_modal($variables) {
 /**
  * Add stripping to tables (in case they don't have .table-no-striping class)
  */
-/*
+
 function gumby_preprocess_table(&$variables) {
 
   if (isset($variables['attributes']['class']) && is_string($variables['attributes']['class'])) {
@@ -179,9 +179,8 @@ function gumby_preprocess_table(&$variables) {
   if(!in_array('table-no-striping', $variables['attributes']['class'])) {
     $variables['attributes']['class'][] = 'table-striped';
   }
-
 }
-*/
+
 
 /**
  * Implements theme_table().
