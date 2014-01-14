@@ -1684,13 +1684,11 @@ table.rounded thead th, table.rounded thead td, table.rounded caption + tbody tr
 .breadcrumb li { float: left; }
 .breadcrumb li .divider { padding: 0 10px; }
 
-button.btn { padding: 0 10px !important; }
+button.btn { padding: 0 20px !important; }
 
 div.error { background-image: none!important; }
 
-.front .container { color: #fff!important; text-shadow: 2px 2px 10px black; height: 100%; background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/Pgo8c3ZnIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgdmlld0JveD0iMCAwIDEgMSIgcHJlc2VydmVBc3BlY3RSYXRpbz0ibm9uZSI+CiAgPHJhZGlhbEdyYWRpZW50IGlkPSJncmFkLXVjZ2ctZ2VuZXJhdGVkIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgY3g9IjUwJSIgY3k9IjUwJSIgcj0iNzUlIj4KICAgIDxzdG9wIG9mZnNldD0iMSUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMCIvPgogICAgPHN0b3Agb2Zmc2V0PSI0NiUiIHN0b3AtY29sb3I9IiMwMDAwMDAiIHN0b3Atb3BhY2l0eT0iMC40MSIvPgogICAgPHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjMDAwMDAwIiBzdG9wLW9wYWNpdHk9IjAuOSIvPgogIDwvcmFkaWFsR3JhZGllbnQ+CiAgPHJlY3QgeD0iLTUwIiB5PSItNTAiIHdpZHRoPSIxMDEiIGhlaWdodD0iMTAxIiBmaWxsPSJ1cmwoI2dyYWQtdWNnZy1nZW5lcmF0ZWQpIiAvPgo8L3N2Zz4=); background: -moz-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.41) 46%, rgba(0, 0, 0, 0.9) 100%); background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(1%, rgba(0, 0, 0, 0)), color-stop(46%, rgba(0, 0, 0, 0.41)), color-stop(100%, rgba(0, 0, 0, 0.9))); background: -webkit-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.41) 46%, rgba(0, 0, 0, 0.9) 100%); background: -o-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.41) 46%, rgba(0, 0, 0, 0.9) 100%); background: -ms-radial-gradient(center, ellipse cover, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.41) 46%, rgba(0, 0, 0, 0.9) 100%); background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 1%, rgba(0, 0, 0, 0.41) 46%, rgba(0, 0, 0, 0.9) 100%); filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#e6000000',GradientType=1 ); }
-.front .container h1, .front .container h2 { color: #fff!important; }
-.front .wrapper { height: 100%; background: url("../img/logo3.svg") top left no-repeat; }
+.container-inline div, .container-inline label { display: block!important; }
 
 /* Icon Styles */
 .scale-lg { font-size: 1.3333333333333333em; line-height: 0.75em; vertical-align: -15%; }
@@ -1703,35 +1701,6 @@ div.error { background-image: none!important; }
 
 .scale-5x { font-size: 5em; }
 
-/*
-.xxxlarge{
-	@include font-size($xxxlarge);
-}
-.reallybig{
-	@include font-size($reallybig);
-}
-.tremendous{
-	@include font-size($tremendous);
-}
-.absurd{
-	@include font-size($absurd);
-}
-.xlarge{
-	@include font-size($xlarge); 
-}
-.larger{
-	@include font-size($larger);
-}
-.large{
-	@include font-size($large);
-}
-.med{
-	@include font-size($med);
-}
-.norm{
-	@include font-size($norm);﻿
-}
-*/
 .rotate-90 { filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1); -webkit-transform: rotate(90deg); -moz-transform: rotate(90deg); -ms-transform: rotate(90deg); -o-transform: rotate(90deg); transform: rotate(90deg); }
 
 .rotate-180 { filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2); -webkit-transform: rotate(180deg); -moz-transform: rotate(180deg); -ms-transform: rotate(180deg); -o-transform: rotate(180deg); transform: rotate(180deg); }

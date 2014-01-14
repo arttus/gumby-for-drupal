@@ -162,8 +162,6 @@ function gumby_gumby_modal($variables) {
   return $output;
 }
 
- 
-
 /**
  * Add stripping to tables (in case they don't have .table-no-striping class)
  */
@@ -180,7 +178,6 @@ function gumby_preprocess_table(&$variables) {
     $variables['attributes']['class'][] = 'table-striped';
   }
 }
-
 
 /**
  * Implements theme_table().

@@ -11,9 +11,14 @@
 }
 
 button.btn{
-	padding: 0 10px!important;
+	padding: 0 20px!important;
 }
 
 div.error {
 	background-image: none!important;
+}
+
+//system.base
+.container-inline div, .container-inline label {
+	display: block!important;
 }
