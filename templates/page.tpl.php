@@ -22,7 +22,7 @@
 
 			
 		  <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-		<a class="toggle" gumby-trigger="#main-menu" href="/"><i class="icon-menu"></i></a> 
+		<a class="toggle" gumby-trigger="#main-menu > ul" href="/"><i class="icon-menu"></i></a> 
 	  <div class="nav-collapse nav-menu-collapse">
 		    <div class="inner"> 
 		      <?php if ($main_menu): ?>
