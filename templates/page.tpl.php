@@ -19,21 +19,24 @@
           <img src="<?php print $logo; ?>" alt="<?php print t('Home'); ?>" />
         </a>
       <?php endif; ?>
+      
+	
 
-			
+        <?php if (!empty($site_slogan)): ?>
+          <div id="site-slogan"><?php print $site_slogan; ?></div>
+        <?php endif; ?>
+
+
 		  <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-		<a class="toggle" gumby-trigger="#main-menu" href="/"><i class="icon-menu"></i></a> 
-	  <div class="nav-collapse nav-menu-collapse">
-		    <div class="inner"> 
-		      <?php if ($main_menu): ?>
-		        <nav id="main-menu" class="six columns main-menu" role="navigation">
-		          <?php print render($main_menu); ?>
-		        </nav> <!-- /#main-menu -->
-		      <?php endif; ?>		 
-					</div>
+		<a class="toggle" gumby-trigger="#main-menu > ul" href="/"><i class="icon-menu"></i></a> 
+	  <div class="nav-collapse nav-menu-collapse">	  
+	      <?php if ($main_menu): ?>
+	        <nav id="main-menu" class="six columns main-menu" role="navigation">
+	          <?php print render($main_menu); ?>
+	        </nav> <!-- /#main-menu -->
+	      <?php endif; ?>		 
 		  </div>
- 
-		
+ 	
 		  <?php if ($search_form): ?>
 		   <div class="search input two columns">
 		    <?php print $search_form; ?>

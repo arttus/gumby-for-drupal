@@ -2,10 +2,10 @@
 
 $plugin = array(
   'title' => t('gumby grid'),
-  'description' => t('Wraps panels or panes in a grid.'),
+  'description' => t('Wraps panes in a gumby grid settings of your choice.'),
   'render panel' => 'gumby_grid_render_panel',
   'render pane' => 'gumby_grid_render_pane',
-  'settings form' => 'gumby_grid_settings_form',
+  //'settings form' => 'gumby_grid_settings_form',
   'pane settings form' => 'gumby_grid_settings_form',
   'hook theme' => array(
     'gumby_grid' => array(
@@ -26,6 +26,7 @@ function theme_gumby_grid($content, $attributes) {
 /**
  * Theme function for the panel style.
  */
+/*
 function theme_gumby_grid_render_panel($display, $panel_id, $panes, $settings) { 
   $output = '';
   foreach ($panes as $pane_id => $pane) {
@@ -34,6 +35,7 @@ function theme_gumby_grid_render_panel($display, $panel_id, $panes, $settings) {
   $attributes = gumby_grid_parse_settings($settings);
   return theme('gumby_grid', $output, $attributes);
 }
+*/
 
 /**
  * Theme function for the pane style.

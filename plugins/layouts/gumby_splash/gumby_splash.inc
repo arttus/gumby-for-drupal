@@ -1,7 +1,7 @@
 <?php
 // Plugin definition
 $plugin = array(
-  'title' => t('Gumby Page'),
+  'title' => t('Gumby Splash'),
   'icon' => 'gumby-splash.png',
   'category' => t('Gumby'),
   'theme' => 'gumby_spl',

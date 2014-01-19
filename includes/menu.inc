@@ -14,7 +14,7 @@ function gumby_menu_local_tasks(&$variables) {
   }
 
   if (!empty($variables['secondary'])) {
-    $variables['primary']['#prefix'] = '<h2 class="element-invisible">' . t('Primary tabs') . '</h2>';
+    $variables['secondary']['#prefix'] = '<h2 class="element-invisible">' . t('Secondary tabs') . '</h2>';
     $variables['secondary']['#prefix'] = '<div class="pill tabs"><ul class="nav tab-nav">';
     $variables['secondary']['#suffix'] = '</ul></div>';
     $output .= drupal_render($variables['secondary']);

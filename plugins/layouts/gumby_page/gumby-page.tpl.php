@@ -1,11 +1,10 @@
 <div class="container <?php if (!empty($classes)) { print $classes; } ?><?php if (!empty($class)) { print $class; } ?>" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
 
   <?php if ($content['header']): ?>
-	<header id="header" role="header">			
+	<header id="header" class="twelve columns navbar" role="header">			
 		<div class="row">	
-	        <?php print $content['header']; ?>
-        </div>
-      </div>
+	     <?php print $content['header']; ?>
+    </div>
    </header>
   <?php endif; ?>
 
@@ -22,6 +21,7 @@
   	<div class="row">
       <?php print $content['footer']; ?>
     </div>
+    
   </footer>
   <?php endif; ?>
 

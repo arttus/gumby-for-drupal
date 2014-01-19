@@ -215,55 +215,55 @@ function gumby_form_element_label(&$variables) {
  * Preprocessor for theme('button').
  */
 function gumby_preprocess_button(&$vars) {
-  $vars['element']['#attributes']['class'][] = 'btn';
+  $vars['element']['#attributes']['class'][] = 'btn pretty rounded medium';
 
   if (isset($vars['element']['#value'])) {
     $classes = array(
       //specifics
-      t('Save and add') => 'info pretty rounded medium',
-      t('Add another item') => 'info pretty rounded medium',
-      t('Add effect') => 'primary pretty rounded medium',
-      t('Add and configure') => 'primary pretty rounded medium',
-      t('Update style') => 'primary pretty rounded medium',
-      t('Download feature') => 'primary pretty rounded medium',
-      t('Save configuration') => 'primary pretty rounded medium',
-      t('E-mail new password') => 'primary pretty rounded medium',      
-      t('Clear all caches') => 'primary pretty rounded medium',
-      t('Enable and save') => 'primary pretty rounded medium',
-      t('Disable and save') => 'warning pretty rounded medium',
-      t('Re-index site') => 'primary pretty rounded medium',
+      t('Save and add') => 'info',
+      t('Add another item') => 'info',
+      t('Add effect') => 'primary',
+      t('Add and configure') => 'primary',
+      t('Update style') => 'primary',
+      t('Download feature') => 'primary',
+      t('Save configuration') => 'primary',
+      t('E-mail new password') => 'primary',      
+      t('Clear all caches') => 'primary',
+      t('Enable and save') => 'primary',
+      t('Disable and save') => 'warning',
+      t('Download these updates') => 'warning',      
+      t('Re-index site') => 'primary',
       
-           //generals
-
-      t('Save') => 'primary pretty rounded medium',
-      t('Enable') => 'primary pretty rounded medium',
-      t('Disable') => 'warning pretty rounded medium',
-      t('Apply') => 'primary pretty rounded medium',
-      t('Publish') => 'primary pretty rounded medium',
-      t('Log in') => 'primary pretty rounded medium',
-      t('Create') => 'primary pretty rounded medium',
-      t('Confirm') => 'primary pretty rounded medium',
-      t('Submit') => 'primary pretty rounded medium',
-      t('Export') => 'primary pretty rounded medium',
-      t('Import') => 'primary pretty rounded medium',
-      t('Restore') => 'primary pretty rounded medium',
-      t('Rebuild') => 'primary pretty rounded medium',
-      t('Search') => 'primary pretty rounded medium',
-      t('Add') => 'primary pretty rounded medium',
-      t('Finish') => 'primary pretty rounded medium',
-      t('Update') => 'info pretty rounded medium',
-      t('Preview') => 'info pretty rounded medium',
-      t('Execute') => 'info pretty rounded medium',
-      t('Continue') => 'info pretty rounded medium',
-      t('Generate') => 'info pretty rounded medium',
-      t('Upload') => 'info pretty rounded medium',
-      t('Reset') => 'warning pretty rounded medium',
-      t('Unpublish') => 'warning pretty rounded medium',
-      t('Clone') => 'warning pretty rounded medium',
-      t('Back') => 'warning pretty rounded medium',
-      t('Cancel') => 'warning pretty rounded medium',
-      t('Delete') => 'danger pretty rounded medium',
-      t('Remove') => 'danger pretty rounded medium',
+      //generals
+      t('Save') => 'primary',
+      t('Enable') => 'primary',
+      t('Disable') => 'warning',
+      t('Apply') => 'primary',
+      t('Publish') => 'primary',
+      t('Log in') => 'primary',
+      t('Create') => 'primary',
+      t('Confirm') => 'primary',
+      t('Submit') => 'primary',
+      t('Export') => 'primary',
+      t('Import') => 'primary',
+      t('Restore') => 'primary',
+      t('Rebuild') => 'primary',
+      t('Search') => 'primary',
+      t('Add') => 'primary',
+      t('Finish') => 'primary',
+      t('Update') => 'info',
+      t('Preview') => 'info',
+      t('Execute') => 'info',
+      t('Continue') => 'info',
+      t('Generate') => 'info',
+      t('Upload') => 'info',
+      t('Reset') => 'warning',
+      t('Unpublish') => 'warning',
+      t('Clone') => 'warning',
+      t('Back') => 'warning',
+      t('Cancel') => 'warning',
+      t('Delete') => 'danger',
+      t('Remove') => 'danger',
     );
     foreach ($classes as $search => $class) {
       if (strpos($vars['element']['#value'], $search) !== FALSE) {
@@ -362,7 +362,8 @@ function gumby_button($variables) {
   $element = $variables['element'];
   $label = $element['#value'];
   element_set_attributes($element, array('id', 'name', 'value', 'type'));
-
+	//_form_set_class($element, array('btn pretty rounded medium'));
+	
   $element['#attributes']['class'][] = 'form-' . $element['#button_type'];
   if (!empty($element['#attributes']['disabled'])) {
     $element['#attributes']['class'][] = 'form-button-disabled';
