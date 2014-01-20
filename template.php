@@ -24,7 +24,7 @@ require_once __DIR__ . '/includes/menu.inc';
 function gumby_preprocess_html(&$variables) {
  	$path_to_gumby = drupal_get_path('theme', 'gumby');
   // add meta for Gumby Responsive
-  // <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  // <meta name="viewport" content="width=device-width, initial-scale=1.0"> hardcoded in html.tpl for now
   $element = array(
     '#tag' => 'meta',
     '#attributes' => array(
@@ -33,20 +33,6 @@ function gumby_preprocess_html(&$variables) {
     ),
   );
   drupal_add_html_head($element, 'gumby_responsive');
-  
-	// Props to Digital Surgeons 
-	//<meta name="author" content="humans.txt">  
- 
-/*
-   $element = array(
-    '#tag' => 'meta',
-    '#attributes' => array(
-      'name' => 'author', 
-      'content' => require_once $path_to_gumby . '/humans.txt',
-    ),
-  );
-  drupal_add_html_head($element, 'attribution'); 
-*/
 }
 
 

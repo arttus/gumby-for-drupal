@@ -100,42 +100,6 @@ function gumby_menu_navigation_links($tree, $lvl = 0) {
   return $result;
 }
 
-function gumby_checkbox($variables) {
-  $element = $variables['element'];
-  $element['#attributes']['type'] = 'checkbox';
-  element_set_attributes($element, array('id', 'name','#return_value' => 'value'));
-
-  // Unchecked checkbox has #value of integer 0.
-  if (!empty($element['#checked'])) {
-    $element['#attributes']['checked'] = 'checked';
-  }
-  _form_set_class($element, array('form-checkbox'));
-
-  return '<input' . drupal_attributes($element['#attributes']) . ' /><span></span>';
-}
-
-function gumby_radio($variables) {
-  $element = $variables['element'];
-  $element['#attributes']['type'] = 'radio';
-  element_set_attributes($element, array('id', 'name','#return_value' => 'value'));
-
-  if (isset($element['#return_value']) && $element['#value'] !== FALSE && $element['#value'] == $element['#return_value']) {
-    $element['#attributes']['checked'] = 'checked';
-  }
-  _form_set_class($element, array('form-radio'));
-
-  return '<input' . drupal_attributes($element['#attributes']) . ' /><span><i class="icon-dot"></i></span>';
-}
-
-function gumby_select($variables) {
-  $element = $variables['element'];
-  element_set_attributes($element, array('id', 'name', 'size'));
-  _form_set_class($element, array('form-select'));
-
-  return '<div class="picker"><select' . drupal_attributes($element['#attributes']) . '>' . form_select_options($element) . '</select></div>';
-}
-
-
 /**
  * Returns HTML for gumby's modal.
  */

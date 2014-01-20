@@ -160,6 +160,77 @@ function gumby_form_element(&$variables) {
   }
   return $output;
 }
+/**
+ * Replacement for theme_webform_element().
+ */
+function gumby_webform_element($variables) {
+  // Ensure defaults.
+  $variables['element'] += array(
+    '#title_display' => 'before',
+  );
+
+  $element = $variables['element'];
+
+  // All elements using this for display only are given the "display" type.
+  if (isset($element['#format']) && $element['#format'] == 'html') {
+    $type = 'display';
+  }
+  else {
+    $type = (isset($element['#type']) && !in_array($element['#type'], array('markup', 'textfield', 'webform_email', 'webform_number'))) ? $element['#type'] : $element['#webform_component']['type'];
+  }
+
+  // Convert the parents array into a string, excluding the "submitted" wrapper.
+  $nested_level = $element['#parents'][0] == 'submitted' ? 1 : 0;
+  $parents = str_replace('_', '-', implode('--', array_slice($element['#parents'], $nested_level)));
+
+  $wrapper_classes = array(
+		'field',
+   'form-item',
+   'webform-component',
+   'webform-component-' . $type,
+  );
+  if (isset($element['#title_display']) && strcmp($element['#title_display'], 'inline') === 0) {
+    $wrapper_classes[] = 'webform-container-inline';
+  }
+  $output = '<div class="' . implode(' ', $wrapper_classes) . '" id="webform-component-' . $parents . '">' . "\n";
+
+  // If #title is not set, we don't display any label or required marker.
+  if (!isset($element['#title'])) {
+    $element['#title_display'] = 'none';
+  }
+  $prefix = isset($element['#field_prefix']) ? '<span class="field-prefix">' . _webform_filter_xss($element['#field_prefix']) . '</span> ' : '';
+  $suffix = isset($element['#field_suffix']) ? ' <span class="field-suffix">' . _webform_filter_xss($element['#field_suffix']) . '</span>' : '';
+
+  switch ($element['#title_display']) {
+    case 'inline':
+    case 'before':
+    case 'invisible':
+      $output .= ' ' . theme('form_element_label', $variables);
+      $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
+      break;
+
+    case 'after':
+      $output .= ' ' . $prefix . $element['#children'] . $suffix;
+      $output .= ' ' . theme('form_element_label', $variables) . "\n";
+      break;
+
+    case 'none':
+    case 'attribute':
+      // Output no label and no required marker, only the children.
+      $output .= ' ' . $prefix . $element['#children'] . $suffix . "\n";
+      break;
+  }
+
+  if (!empty($element['#description'])) {
+    $output .= ' <div class="description">' . $element['#description'] . "</div>\n";
+  }
+
+  $output .= "</div>\n";
+
+  return $output;
+}
+
+
 
 /**
  * Returns HTML for a form element label and required marker.
@@ -335,26 +406,6 @@ function gumby_password($variables) {
   return '<input' . drupal_attributes($element['#attributes']) . ' />';
 }
 
-function gumby_webform_email($variables) {
-  $element = $variables['element'];
-
-  // This IF statement is mostly in place to allow our tests to set type="text"
-  // because SimpleTest does not support type="email".
-  if (!isset($element['#attributes']['type'])) {
-    $element['#attributes']['type'] = 'email';
-  }
-
-  // Convert properties to attributes on the element if set.
-  foreach (array('id', 'name', 'value', 'size') as $property) {
-    if (isset($element['#' . $property]) && $element['#' . $property] !== '') {
-      $element['#attributes'][$property] = $element['#' . $property];
-    }
-  }
-  _form_set_class($element, array('text input', 'form-email'));
-
-  return '<input' . drupal_attributes($element['#attributes']) . ' />';
-}
-
 /**
  * Returns HTML for a button form element.
  */
@@ -379,6 +430,91 @@ function gumby_button($variables) {
     return '<button' . drupal_attributes($element['#attributes']) . '>'. $label ."</button>\n"; // This line break adds inherent margin between multiple buttons
   }
 }
+
+function gumby_checkbox($variables) {
+  $element = $variables['element'];
+  $element['#attributes']['type'] = 'checkbox';
+  element_set_attributes($element, array('id', 'name','#return_value' => 'value'));
+
+  // Unchecked checkbox has #value of integer 0.
+  if (!empty($element['#checked'])) {
+    $element['#attributes']['checked'] = 'checked';
+  }
+  _form_set_class($element, array('form-checkbox'));
+
+  return '<input' . drupal_attributes($element['#attributes']) . ' /><span></span>';
+}
+
+function gumby_radio($variables) {
+  $element = $variables['element'];
+  $element['#attributes']['type'] = 'radio';
+  element_set_attributes($element, array('id', 'name','#return_value' => 'value'));
+
+  if (isset($element['#return_value']) && $element['#value'] !== FALSE && $element['#value'] == $element['#return_value']) {
+    $element['#attributes']['checked'] = 'checked';
+  }
+  _form_set_class($element, array('form-radio'));
+
+  return '<input' . drupal_attributes($element['#attributes']) . ' /><span><i class="icon-dot"></i></span>';
+}
+
+function gumby_select($variables) {
+  $element = $variables['element'];
+  element_set_attributes($element, array('id', 'name', 'size'));
+  _form_set_class($element, array('form-select'));
+
+  return '<div class="picker"><select' . drupal_attributes($element['#attributes']) . '>' . form_select_options($element) . '</select></div>';
+}
+
+/**
+ * Format the output of Webform components.
+ */
+function gumby_webform_display_textfield($variables) {
+  $element = $variables['element'];
+  $prefix = $element['#format'] == 'html' ? '' : $element['#field_prefix'];
+  $suffix = $element['#format'] == 'html' ? '' : $element['#field_suffix'];
+  $value = $element['#format'] == 'html' ? check_plain($element['#value']) : $element['#value'];
+  return $value !== '' ? ($prefix . $value . $suffix) : ' ';
+  _form_set_class($element, array('text input'));
+}
+
+/**
+ * Format the output of Webform components.
+ */
+function gumby_webform_display_textarea($variables) {
+  $element = $variables['element'];
+  $output = $element['#format'] == 'html' ? nl2br(check_plain($element['#value'])) : $element['#value'];
+  if (drupal_strlen($output) > 80) {
+    $output = ($element['#format'] == 'html') ? '<div class="text input webform-long-answer">' . $output . '</div>' : $output;
+  }
+  return $output !== '' ? $output : ' ';
+}
+
+/**
+ * Theme function to render an email component.
+ */
+function gumby_webform_email($variables) {
+  $element = $variables['element'];
+
+  // This IF statement is mostly in place to allow our tests to set type="text"
+  // because SimpleTest does not support type="email".
+  if (!isset($element['#attributes']['type'])) {
+    $element['#attributes']['type'] = 'email';
+  }
+
+  // Convert properties to attributes on the element if set.
+  foreach (array('id', 'name', 'value', 'size') as $property) {
+    if (isset($element['#' . $property]) && $element['#' . $property] !== '') {
+      $element['#attributes'][$property] = $element['#' . $property];
+    }
+  }
+  _form_set_class($element, array('text input form-text', 'form-email'));
+
+  return '<input' . drupal_attributes($element['#attributes']) . ' />';
+}
+
+
+
 
 /**
  * Returns an array containing ids of any whitelisted drupal elements

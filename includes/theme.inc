@@ -254,7 +254,7 @@ function gumby_item_list($variables) {
  * Implements hook_js_alter().
  */
 
-/*
+
 function _gumby_alter($files, $type) {
   $output = array();
 
@@ -268,4 +268,3 @@ function _gumby_alter($files, $type) {
   return $output;
 }
 
-*/
