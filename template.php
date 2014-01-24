@@ -13,9 +13,9 @@ require_once __DIR__ . '/includes/gumby.inc';
 require_once __DIR__ . '/includes/theme.inc';
 require_once __DIR__ . '/includes/form.inc';
 require_once __DIR__ . '/includes/menu.inc';
-
-
-
+require_once __DIR__ . '/includes/pager.inc';
+require_once __DIR__ . '/includes/item-list.inc';
+require_once __DIR__ . '/includes/links.inc';
 
 /**
  * Implementation of template_preprocess_html()
@@ -43,12 +43,6 @@ function gumby_preprocess_html(&$variables) {
 
 function gumby_preprocess_page(&$variables) {
 
-  // determine if the page is rendered using panels
-  $variables['is_panel'] = FALSE;
-  if (module_exists('page_manager') && sizeof(page_manager_get_current_page())) {
-    $variables['is_panel'] = TRUE;
-  }
-
   // Add search_form to theme
   $variables['search_form'] = '';
   if (module_exists('search') && user_access('search content')) {
@@ -67,15 +61,11 @@ function gumby_preprocess_page(&$variables) {
   $main_menu_tree = menu_tree_all_data('main-menu');
   $variables['main_menu'] = menu_tree_output($main_menu_tree);
 
-  // Format and add footer menu to theme
-  $footer_menu_tree = menu_tree_all_data('menu-footer-menu');
-  $variables['footer_menu'] = menu_tree_output($footer_menu_tree);
-  
-
   // Primary nav
   $variables['primary_nav'] = FALSE;
   if ($variables['main_menu']) {
     // Build links
+    
     $variables['primary_nav'] = menu_tree(variable_get('menu_main_links_source', 'main-menu'));
     // Provide default theme wrapper function
     $variables['primary_nav']['#theme_wrappers'] = array('menu_tree__primary');
@@ -89,22 +79,27 @@ function gumby_preprocess_page(&$variables) {
     // Provide default theme wrapper function
     $variables['secondary_nav']['#theme_wrappers'] = array('menu_tree__secondary');
   }
+  
+  // Primary nav.
+  $variables['primary_nav'] = FALSE;
+  if ($variables['main_menu']) {
+    // Build links.
+    $variables['primary_nav'] = menu_tree(variable_get('menu_main_links_source', 'main-menu'));
+    // Provide default theme wrapper function.
+    $variables['primary_nav']['#theme_wrappers'] = array('menu_tree__primary');
+  }
+
+  // Secondary nav.
+  $variables['secondary_nav'] = FALSE;
+  if ($variables['secondary_menu']) {
+    // Build links.
+    $variables['secondary_nav'] = menu_tree(variable_get('menu_secondary_links_source', 'user-menu'));
+    // Provide default theme wrapper function.
+    $variables['secondary_nav']['#theme_wrappers'] = array('menu_tree__secondary');
+  }
+
   //gumby copyright 
   $variables['copyright'] = 'Made with <a href="http://www.drupal.org" target="_blank">Drupal</a> and <a href="http://www.gumbyframework.com" target="_blank">Gumby</a>';
-}
-
-/**
- * gumby theme wrapper function for the primary menu links
- */
-function gumby_menu_tree__primary(&$variables) {
-  return '<ul class="menu nav">' . $variables['tree'] . '</ul>';
-}
-
-/**
- * gumby theme wrapper function for the secondary menu links
- */
-function gumby_menu_tree__secondary(&$variables) {
-  return '<ul class="menu nav pull-right">' . $variables['tree'] . '</ul>';
 }
 
 
@@ -139,7 +134,7 @@ function gumby_breadcrumb($variables) {
  *
  * @ingroup themable
  */
-function gumby_gumby_search_form_wrapper(&$variables) {
+function gumby_search_form_wrapper(&$variables) {
   $output = '<div class="input-append">';
   $output .= $variables['element']['#children'];
   $output .= '<button type="submit" class="btn">';

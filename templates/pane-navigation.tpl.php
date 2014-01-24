@@ -18,17 +18,22 @@
  ?>
   <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
 <a class="toggle btn-navbar " gumby-trigger="#main-menu > ul" href="/"><i class="icon-menu"></i></a> 
-<div class="nav-collapse nav-menu-collapse">	
-  
+<div class="nav-collapse nav-menu-collapse">
+
 <?php if (!empty($main_menu)): ?>
   <nav id="main-menu" class="six columns main-menu" role="navigation">
-    <?php print render($main_menu); ?>
-  </nav> <!-- /#main-menu -->
-<?php endif; ?>
+     <?php print $main_menu; ?>
+     
+     <?php if (!empty($primary_nav)): ?>
+            <?php print render($primary_nav); ?>
+          <?php endif; ?>
+          <?php if (!empty($secondary_nav)): ?>
+            <?php print render($secondary_nav); ?>
+          <?php endif; ?>
+          <?php if (!empty($page['navigation'])): ?>
+            <?php print render($page['navigation']); ?>
+          <?php endif; ?>
 
-<?php if (!empty($secondary_menu)): ?>
-  <div id="secondary" class="clearfix">
-    <?php print $secondary_menu; ?>
-  </div>
+  </nav> <!-- /#main-menu -->
 <?php endif; ?>
 </div>

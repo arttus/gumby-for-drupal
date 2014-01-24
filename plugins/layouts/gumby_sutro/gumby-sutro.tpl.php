@@ -17,6 +17,6 @@
 	  <div class="row">
 	    <footer class="twelve columns footer">     
 	      <?php print $content['footer']; ?>
-	    </footer
+	    </footer>
 	  </div> 
 </div><!-- /.sutro -->

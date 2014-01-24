@@ -16,14 +16,13 @@ button.btn{
 	background-color: lighten($default-color, 20%);
 }
 
-div.error {
-	background-image: none!important;
-}
 
 //system.base
-.container-inline div, .container-inline label {
+
+.page-manager-ajax-pad .container-inline div, .page-manager-ajax-pad .container-inline label {
 	display: block!important;
 }
+
 
 tr.even, tr.odd {
 	background-color:lighten($global-bg-color, 10%);
@@ -37,6 +36,65 @@ td.active {
 div.admin-requirements, 
 div.admin-required{color:$body-font-color;}
 
+
+/**
+ * Styles for system messages.
+ */
+
+
+#messages {
+	.error, .warning, .status {
+		background-repeat:no-repeat;
+	}
+}
+
+
+div.status {
+  //background-image: url(../../misc/message-24-ok.png);
+  border-color: #be7;
+}
+div.status,
+.ok {
+  color: $body-font-color;
+}
+div.status,
+table tr.ok {
+  background-color: $info-color;
+}
+
+div.warning {
+  //background-image: url(../../misc/message-24-warning.png);
+  border-color: #ed5;
+}
+
+div.warning,
+.warning {
+  color: $body-font-color;
+}
+div.warning,
+table tr.warning {
+  background-color: $warning-color;
+}
+
+.error, .warning, .status {
+	background-image: none!important;
+}
+
+div.error {
+  //background-image: url(../../misc/message-24-error.png);
+  border-color: $danger-hover-color;
+}
+div.error,
+.error {
+  color: $body-font-color;
+}
+div.error,
+table tr.error {
+  background-color:$danger-color;
+}
+div.error p.error {
+  color: $body-font-color;
+}
 
 /**
  * Modules page.
@@ -88,9 +146,13 @@ span.admin-missing {
   border-right: 1px solid #cdcdcd;  /* LTR */
 }
 
-.handler-summary .handler-title{ background: $default-color;}
+
 
 #page-manager-edit {
+	table{
+		tr.odd {background: lighten($global-bg-color, 10%);}
+		tr.even {background: $global-bg-color;}
+	}
 	color:$body-font-color;
 	.changed-notification {
 	  border: 1px solid #aaa;
@@ -152,7 +214,7 @@ span.admin-missing {
 		  line-height: 2em;
 		}
 		li a {
-		  color: #494949;
+		  color:$body-font-color;
 		}
 		li li.operation-first {
 		  border-top: 1px solid #aaa;
@@ -163,23 +225,19 @@ span.admin-missing {
 			/** provide a reset for non active stray paths */
 		li.active-group li.not-active .page-manager-group-title,
 		li.changed-group li.not-changed .page-manager-group-title {
-		  background: #F6F6F6;
+		  background: lighten($default-color, 25%);
 		}
 		li .ctools-collapsible-handle:hover {
-		  background-color: #eee;
+		  background-color: lighten($default-color, 10%);
 		}
 
 		li a:hover {
-		  background-color: #eee;
+		  background-color: lighten($default-color, 10%);
 		}
 		//li a:hover,
 		li.active a, 
 		li.active a:hover {background: lighten($default-color, 25%); color:$body-font-color;}
 
-		table{
-			tr{background: lighten($default-color, 10%);}
-			tr.even {background-color:$default-color;}
-		}
 		li.changed,
 		li.changed-group .page-manager-group-title {
 		  background-color: #ffe;
@@ -187,7 +245,7 @@ span.admin-missing {
 		}
 		li.active,
 		li.active-group .page-manager-group-title {
-		  //background: #FFFFFF url(../images/arrow-active.png) no-repeat scroll right center;
+		  background: $default-color;
 		}
 	}	
 }
@@ -197,13 +255,10 @@ span.admin-missing {
 }
 
 .handler-summary .handler-title {
-  border-top: 1px solid #ddd;
-  border-bottom: 1px solid #ddd;
-  background: #fafafa;
-
+  border-top: 1px solid lighten($default-color, 25%);
+  border-bottom: 1px solid lighten($default-color, 25%);
+  background: $default-color;
 }
-
-
 
 #page-manager-list-pages {
 	tr.page-manager-disabled td {
@@ -380,29 +435,18 @@ div.panels-set-title-hide .panel-pane-is-title {
 #panels-dnd-main .ctools-dropdown a.ctools-dropdown-text-link,
 html.js div.panels-display-links a.ctools-dropdown-text-link {
 
-  background: url('../images/arrow-down-light.png') 0 3px no-repeat!important;
+  //background: url('../images/arrow-down-light.png') 0 3px no-repeat!important;
   padding-left: 12px;
 }
 html.js #panels-dnd-main div.ctools-dropdown div.ctools-dropdown-container,
 html.js div.panels-display-links div.ctools-dropdown-container {
-  width: 160px!important;
-  background: #fff url('../images/bg-shade-white-lrg.png') repeat-x 0 100%;
+  //background: #fff url('../images/bg-shade-white-lrg.png') repeat-x 0 100%;
   border: solid 1px #ddd!important;
-  margin: 0!important;
-/*  padding: 0.5em!important; */
-  -webkit-border-radius: 0.333em;
-  -moz-border-radius: 0.333em;
-  -webkit-box-shadow: 0.333em 0.333em 0.333em rgba(0, 0, 0, 0.25);
-  font-size: 0.9em;
-  font-weight: bold;
+
 }
 
 html.js #panels-dnd-main div.ctools-dropdown div.ctools-dropdown-container ul li,
 html.js div.panels-display-links div.ctools-dropdown-container ul li {
-
-  text-decoration: none;
-  padding: 0;
-  margin: 0;
   color: #555!important;
   text-shadow: #fff 1px 1px 1px;
 }
@@ -416,29 +460,23 @@ html.js div.panels-display-links div.ctools-dropdown-container ul li span.text {
 html.js #panels-dnd-main div.ctools-dropdown div.ctools-dropdown-container ul li a,
 html.js div.panels-display-links div.ctools-dropdown-container ul li a {
   color: #555!important;
-  font-weight: normal;
-  width: auto;
-  padding: 0 10px;
 }
 
 
 html.js #panels-dnd-main div.ctools-dropdown div.ctools-dropdown-container ul li span.dropdown-header,
 html.js div.panels-display-links div.ctools-dropdown-container ul li span.dropdown-header {
   background-color: #fefefe;
-  padding: 0 10px;
+
 }
 
 
 html.js #panels-dnd-main div.ctools-dropdown div.ctools-dropdown-container hr,
 html.js div.panels-display-links div.ctools-dropdown-container hr {
-  border: 0;
   color: #ddd;
   background-color: #ddd;
-  height: 1px;
 }
 
 div.ctools-modal-content .modal-header {
-  background: #fff url('../images/bg-shade-light.png') repeat-x bottom left;
   color: #777;
 
 }
@@ -520,21 +558,170 @@ table.package tr.disabling {
 
 .vertical-tabs {
 	border: none;
-	background-color: lighten($global-bg-color, 20%);
+	background-color: lighten($global-bg-color, 10%);
   ul.vertical-tabs-list {
-	  border-top: 1px solid lighten($global-bg-color, 20%);
+	  //border-top: 1px solid lighten($global-bg-color, 20%);
 	}
-	ul.vertical-tabs-list li {
-	  background: $global-bg-color;
-	  border: 1px solid lighten($global-bg-color, 20%);
+	ul.vertical-tabs-list li { 	  background: $global-bg-color;
+	  border: 1px solid lighten($global-bg-color, 10%);
 	}
 	ul.vertical-tabs-list li a:hover {
 	  outline: 1px dotted;
 	}
 	ul.vertical-tabs-list li.selected {
-	  background-color: lighten($global-bg-color, 20%);
+	  background-color: lighten($global-bg-color, 10%);
 	}
 	ul.vertical-tabs-list .selected strong {
 	  color: $body-font-color;
 	}
+}
+
+
+
+
+
+/**
+ * System.theme.css
+ * Basic styling for common markup.
+ */
+
+/**
+ * HTML elements.
+ */
+
+/*
+hr {
+  border: 1px solid gray;
+  height: 1px;
+}
+
+th {
+  border-bottom: 3px solid #ccc;
+}
+tbody {
+  border-top: 1px solid #ccc;
+}
+*/
+
+
+table{
+	tr.even, tr.odd {border-bottom: 1px solid lighten($global-bg-color, 30%);}
+	tr.odd {background: lighten($global-bg-color, 10%);}
+	tr.even {background: ighten($global-bg-color, 20%);}
+}
+		
+/**
+ * Markup generated by theme_tablesort_indicator().
+ */
+
+/*
+td.active {
+  background-color: #ddd;
+}
+*/
+
+.marker,
+.form-required {
+  color: $secondary-color;
+}
+.form-item input.error,
+.form-item textarea.error,
+.form-item select.error {
+  border: 2px solid $danger-color;
+}
+
+.more-help-link a {
+  //background: url(../../misc/help.png) 0 50% no-repeat; /* LTR */
+
+}
+
+/**
+ * Markup generated by theme_pager().
+ */
+/*
+.item-list .pager {
+  clear: both;
+  text-align: center;
+}
+.item-list .pager li {
+  background-image: none;
+  display: inline;
+  list-style-type: none;
+  padding: 0.5em;
+}
+.pager-current {
+  font-weight: bold;
+}
+*/
+
+/**
+ * Autocomplete.
+ *
+ * @see autocomplete.js
+ */
+/* Suggestion list */
+#autocomplete li.selected {
+  background: $global-bg-color;
+  color: $body-font-color;
+}
+
+/**
+ * Collapsible fieldsets.
+ *
+ * @see collapse.js
+ */
+
+.fieldset-legend span.summary {
+  color: $body-font-color;
+
+}
+
+/**
+ * TableDrag behavior.
+ *
+ * @see tabledrag.js
+ */
+tr.drag {
+  background-color: #fffff0;
+}
+tr.drag-previous {
+  background-color: #ffd;
+}
+
+
+/**
+ * TableSelect behavior.
+ *
+ * @see tableselect.js
+*/
+tr.selected td {
+  background: #ffc;
+}
+
+/**
+ * Progress bar.
+ *
+ * @see progress.js
+ */
+.progress {
+  font-weight: bold;
+}
+.progress .bar {
+  background: #ccc;
+  border-color: #666;
+}
+.progress .filled {
+//  background: #0072b9 url(../../misc/progress.gif);
+}
+
+
+//navbar module
+#navbar-administration .navbar-bar a span{
+	color:$white;
+}
+
+//wysiwyg
+body.mceContentBody{
+	background:$default-color!important;
+  color: $body-font-color!important; 
 }

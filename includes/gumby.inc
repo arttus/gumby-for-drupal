@@ -103,7 +103,7 @@ function gumby_menu_navigation_links($tree, $lvl = 0) {
 /**
  * Returns HTML for gumby's modal.
  */
-function gumby_gumby_modal($variables) {
+function gumby_modal($variables) {
   $body = $variables['body'];
   $links = $variables['footer'];
   $heading = $variables['heading'];
