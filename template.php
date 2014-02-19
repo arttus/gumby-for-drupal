@@ -1,176 +1,56 @@
 <?php
 /**
  * @file
- * Gumby Now more flexible than ever for Drupal front-end development.
- *  
- */
- 
-// Provide < PHP 5.3 support for the __DIR__ constant.
-if (!defined('__DIR__')) {
-  define('__DIR__', dirname(__FILE__));
-}
-require_once __DIR__ . '/includes/gumby.inc';
-require_once __DIR__ . '/includes/theme.inc';
-require_once __DIR__ . '/includes/form.inc';
-require_once __DIR__ . '/includes/menu.inc';
-require_once __DIR__ . '/includes/pager.inc';
-require_once __DIR__ . '/includes/item-list.inc';
-require_once __DIR__ . '/includes/links.inc';
-
-/**
- * Implementation of template_preprocess_html()
- */
- 
-function gumby_preprocess_html(&$variables) {
- 	$path_to_gumby = drupal_get_path('theme', 'gumby');
-  // add meta for Gumby Responsive
-  // <meta name="viewport" content="width=device-width, initial-scale=1.0"> hardcoded in html.tpl for now
-  $element = array(
-    '#tag' => 'meta',
-    '#attributes' => array(
-      'name' => 'viewport', 
-      'content' => 'width=device-width, initial-scale=1.0',
-    ),
-  );
-  drupal_add_html_head($element, 'gumby_responsive');
-}
-
-
- 
-/**
- * Implements template_preprocess_page().
- */
-
-function gumby_preprocess_page(&$variables) {
-
-  // Add search_form to theme
-  $variables['search_form'] = '';
-  if (module_exists('search') && user_access('search content')) {
-    $search_box_form = drupal_get_form('search_form');
-    $search_box_form['basic']['keys']['#title'] = '';
-    $search_box_form['basic']['keys']['#attributes'] = array('placeholder' => 'Search');
-    $search_box_form['basic']['keys']['#attributes']['class'][] = 'search-query';
-    $search_box_form['basic']['submit']['#value'] = t('Search');
-    $search_box_form['#attributes']['class'][] = 'navbar-form';
-    $search_box_form['#attributes']['class'][] = 'pull-right';
-    $search_box = drupal_render($search_box_form);
-    $variables['search_form'] = (user_access('search content')) ? $search_box : NULL;
-  }
-
-  // Format and add main menu to theme
-  $main_menu_tree = menu_tree_all_data('main-menu');
-  $variables['main_menu'] = menu_tree_output($main_menu_tree);
-
-  // Primary nav
-  $variables['primary_nav'] = FALSE;
-  if ($variables['main_menu']) {
-    // Build links
-    
-    $variables['primary_nav'] = menu_tree(variable_get('menu_main_links_source', 'main-menu'));
-    // Provide default theme wrapper function
-    $variables['primary_nav']['#theme_wrappers'] = array('menu_tree__primary');
-  }
-
-  // Secondary nav
-  $variables['secondary_nav'] = FALSE;
-  if ($variables['secondary_menu']) {
-    // Build links
-    $variables['secondary_nav'] = menu_tree(variable_get('menu_secondary_links_source', 'user-menu'));
-    // Provide default theme wrapper function
-    $variables['secondary_nav']['#theme_wrappers'] = array('menu_tree__secondary');
-  }
-  
-  // Primary nav.
-  $variables['primary_nav'] = FALSE;
-  if ($variables['main_menu']) {
-    // Build links.
-    $variables['primary_nav'] = menu_tree(variable_get('menu_main_links_source', 'main-menu'));
-    // Provide default theme wrapper function.
-    $variables['primary_nav']['#theme_wrappers'] = array('menu_tree__primary');
-  }
-
-  // Secondary nav.
-  $variables['secondary_nav'] = FALSE;
-  if ($variables['secondary_menu']) {
-    // Build links.
-    $variables['secondary_nav'] = menu_tree(variable_get('menu_secondary_links_source', 'user-menu'));
-    // Provide default theme wrapper function.
-    $variables['secondary_nav']['#theme_wrappers'] = array('menu_tree__secondary');
-  }
-
-  //gumby copyright 
-  $variables['copyright'] = 'Made with <a href="http://www.drupal.org" target="_blank">Drupal</a> and <a href="http://www.gumbyframework.com" target="_blank">Gumby</a>';
-}
-
-
-/**
- * Override theme_breadrumb().
+ * template.php
  *
- * Print breadcrumbs as a list, with separators.
- */
-function gumby_breadcrumb($variables) {
-  $breadcrumb = $variables['breadcrumb'];
-
-  if (!empty($breadcrumb)) {
-    $breadcrumbs = '<ul class="breadcrumb">';
-    
-    $count = count($breadcrumb) - 1;
-    foreach ($breadcrumb as $key => $value) {
-      if ($count != $key) {
-        $breadcrumbs .= '<li>' . $value . '<span class="divider">/</span></li>';
-      }
-      else{
-        $breadcrumbs .= '<li>' . $value . '</li>';
-      }
-    }
-    $breadcrumbs .= '</ul>';
-    
-    return $breadcrumbs;
-  }
-}
-
-/**
- * Adds the search form's submit button right after the input element.
+ * This file should only contain light helper functions and stubs pointing to
+ * other files containing more complex functions.
  *
- * @ingroup themable
+ * The stubs should point to files within the `theme` folder named after the
+ * function itself minus the theme prefix. If the stub contains a group of
+ * functions, then please organize them so they are related in some way and name
+ * the file appropriately to at least hint at what it contains.
+ *
+ * All [pre]process functions, theme functions and template implementations also
+ * live in the 'theme' folder. This is a highly automated and complex system
+ * designed to only load the necessary files when a given theme hook is invoked.
+ * @see _gumby_theme()
+ * @see theme/registry.inc
+ *
+ * Due to a bug in Drush, these includes must live inside the 'theme' folder
+ * instead of something like 'includes'. If a module or theme has an 'includes'
+ * folder, Drush will think it is trying to gumby core when it is invoked
+ * from inside the particular extension's directory.
+ * @see https://drupal.org/node/2102287
  */
-function gumby_search_form_wrapper(&$variables) {
-  $output = '<div class="input-append">';
-  $output .= $variables['element']['#children'];
-  $output .= '<button type="submit" class="btn">';
-  $output .= '<i class="icon-search"></i>';
-  $output .= '<span class="element-invisible">' . t('Search') . '</span>';
-  $output .= '</button>';
-  $output .= '</div>';
-  return $output;
- }
-
 
 /**
- * Implements theme_menu_link().
+ * Include common functions used through out theme.
  */
-function gumby_link($variables) {
-  $icons = '';
-  if (isset($variables['options']['attributes']['class']) && is_array($variables['options']['attributes']['class'])) {
-    $css_classes = $variables['options']['attributes']['class'];
-    if ($icon_classes = preg_grep('/^icon\-.*/', $css_classes)) {
-      // render an icon for each class
-      foreach ($icon_classes as $icon_class) {
-        $icons .= '<i class="' . $icon_class . '"></i>';
-      }
-      // unset icon classes for attributes to prevent double rendering
-      $variables['options']['attributes']['class'] = array_diff($css_classes, $icon_classes);
-    }
-  }
-  return '<a href="' . check_plain(url($variables['path'], $variables['options'])) . '"' . drupal_attributes($variables['options']['attributes']) . '>' . $icons . '<span>' . ($variables['options']['html'] ? $variables['text'] : check_plain($variables['text'])) . '</span>' .  '</a>';
+include_once dirname(__FILE__) . '/theme/common.inc';
+
+/**
+ * Implements hook_theme().
+ *
+ * Register theme hook implementations.
+ *
+ * The implementations declared by this hook have two purposes: either they
+ * specify how a particular render array is to be rendered as HTML (this is
+ * usually the case if the theme function is assigned to the render array's
+ * #theme property), or they return the HTML that should be returned by an
+ * invocation of theme().
+ *
+ * @see _gumby_theme()
+ */
+function gumby_theme(&$existing, $type, $theme, $path) {
+  gumby_include($theme, 'theme/registry.inc');
+  return _gumby_theme($existing, $type, $theme, $path);
 }
 
-
-//remove panel seperator
-function gumby_panels_default_style_render_region($vars) {
-    $output = '';
-    $output .= implode('', $vars['panes']);
-    return $output;
-}
-
-
+/**
+ * Declare various hook_*_alter() hooks.
+ *
+ * hook_*_alter() implementations must live (via include) inside this file so
+ * they are properly detected when drupal_alter() is invoked.
+ */
+gumby_include('gumby', 'theme/alter.inc');

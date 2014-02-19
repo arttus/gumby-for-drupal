@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * item-list.func.php
+ */
 
 /**
  * Overrides theme_item_list().

@@ -1,4 +1,8 @@
 <?php
+/**
+ * @file
+ * pager.func.php
+ */
 
 /**
  * Overrides theme_pager().

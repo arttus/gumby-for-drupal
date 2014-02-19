@@ -306,9 +306,9 @@ function gumby_icon_bundles() {
 			'icon-smashing' => 'smashing',
 			'icon-sweden' => 'sweden',
 			'icon-db-shape' => 'db-shape',
-			'icon-logo-db' => 'logo-db
-    )',
-
+			'icon-logo-db' => 'logo-db',
+			),
   );
   return $bundles;
 }
+

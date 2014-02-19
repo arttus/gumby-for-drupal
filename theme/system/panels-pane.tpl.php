@@ -31,15 +31,7 @@
   <?php endif; ?>
   <?php print render($title_suffix); ?>
 
-  <?php if ($feeds): ?>
-    <div class="feed">
-      <?php print $feeds; ?>
-    </div>
-  <?php endif; ?>
-
-  <div class="pane-content">
     <?php print render($content); ?>
-  </div>
 
   <?php if ($links): ?>
     <div class="links">

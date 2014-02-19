@@ -1,7 +1,7 @@
 <div class="container <?php if (!empty($classes)) { print $classes; } ?><?php if (!empty($class)) { print $class; } ?>" <?php if (!empty($css_id)) { print "id=\"$css_id\""; } ?>>
 
   <?php if ($content['header']): ?>
-	<header id="header" class="twelve columns navbar" role="header">			
+	<header id="header" class="twelve columns pretty navbar" role="header">			
 		<div class="row">	
 	     <?php print $content['header']; ?>
     </div>
