@@ -37,7 +37,7 @@ td.active {
 }
 
 div.admin-requirements, 
-div.admin-required{color:$body-font-color;}
+div.admin-required{ color:$body-font-color;}
 
 
 /**
@@ -280,12 +280,12 @@ span.admin-missing {
 }
 
 .cirkuitSkin table, .cirkuitSkin tbody, .cirkuitSkin a, .cirkuitSkin img, .cirkuitSkin tr, .cirkuitSkin div, .cirkuitSkin td, .cirkuitSkin iframe, .cirkuitSkin span, .cirkuitSkin *, .cirkuitSkin .mceText{
-	background:$global-bg-color;
+	background: $global-bg-color;
 	color: $body-font-color;
 }
 
 .cirkuitSkin iframe {
-	background:$global-bg-color!important;
+	background: $global-bg-color!important;
 	color: $body-font-color;
 }
 
