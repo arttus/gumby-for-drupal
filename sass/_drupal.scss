@@ -9,15 +9,15 @@
 		}
 	}
 }
+
 //some defaults for buttons
-button.btn{
+.btn{
 	//padding: 0 14px!important;
 	//color:$body-font-color;
 	background-color: lighten($default-color, 20%);
 }
 
 #search-block-form button.btn{
-	
 }
 
 //system.base
@@ -26,7 +26,6 @@ button.btn{
 .page-manager-ajax-pad .container-inline label {
 	display: block!important;
 }
-
 
 tr.even, tr.odd {
 	background-color:lighten($global-bg-color, 10%);
@@ -52,7 +51,6 @@ div.admin-required{color:$body-font-color;}
 	}
 }
 
-
 div.status, .ok, table tr.ok  {
   //background-image: url(../../misc/message-24-ok.png);
   //border-color: #be7;
@@ -60,14 +58,12 @@ div.status, .ok, table tr.ok  {
   background-color: $success-color;
 }
 
-
 div.warning, table tr.warning{
   //background-image: url(../../misc/message-24-warning.png);
   //border-color: #ed5;
   color: $body-font-color;
   background-color: $warning-color;
 }
-
  
 .error, .warning, .status {
 	background-image: none!important;
@@ -79,14 +75,15 @@ div.error {
     color: $body-font-color;
     background-color:$danger-color;
 }
+
 div.error,
 .error {
-
 }
+
 div.error,
 table tr.error {
-  
 }
+
 div.error p.error {
   color: $body-font-color;
 }
@@ -99,12 +96,15 @@ div.admin-requirements,
 div.admin-required {
   color: $primary-color;
 }
+
 span.admin-disabled {
   color: $secondary-color;
 }
+
 span.admin-enabled {
   color: $primary-color;
 }
+
 span.admin-missing {
   color: $warning-color;
 }
@@ -543,6 +543,7 @@ div.ctools-modal-content {
 	  color: $body-font-color;
 	}
 }
+
 #module-filter-show-wrapper .form-type.checkbox{
 	width:25%;
 	label{
