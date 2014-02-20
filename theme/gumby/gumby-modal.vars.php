@@ -7,7 +7,7 @@
 /**
  * Implements theme_preprocess_gumby_modal().
  *
- * @todo: Replace with "gumby_effect_fade" theme setting.
+ * @todo...
  */
 function gumby_preprocess_gumby_modal(&$variables) {
   if (empty($variables['attributes']['id'])) {
