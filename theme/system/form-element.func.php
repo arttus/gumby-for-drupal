@@ -139,7 +139,6 @@ $prefix = '';
 
   $output .= "</div>\n";
 
-
   return $output;
 }
 
@@ -164,7 +163,7 @@ function gumby_checkbox($variables) {
   if (!empty($element['#checked'])) {
     $element['#attributes']['checked'] = 'checked';
   }
-  _form_set_class($element, array('form-checkbox'));
+  _form_set_class($element, array('checkbox'));
 
   return '<input' . drupal_attributes($element['#attributes']) . ' /><span></span>';
 }
@@ -206,10 +205,10 @@ function gumby_webform_element($variables) {
   $parents = str_replace('_', '-', implode('--', array_slice($element['#parents'], $nested_level)));
 
   $wrapper_classes = array(
-		'field',
+	 'field',
    'form-item',
    'webform-component',
-   'webform-component-' . $type,
+   $type,
   );
   if (isset($element['#title_display']) && strcmp($element['#title_display'], 'inline') === 0) {
     $wrapper_classes[] = 'webform-container-inline';
