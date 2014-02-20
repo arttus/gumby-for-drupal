@@ -57,7 +57,7 @@ div.status, .ok, table tr.ok  {
   //background-image: url(../../misc/message-24-ok.png);
   //border-color: #be7;
   color: $body-font-color;
-  background-color: $info-color;
+  background-color: $success-color;
 }
 
 
@@ -65,7 +65,7 @@ div.warning, table tr.warning{
   //background-image: url(../../misc/message-24-warning.png);
   //border-color: #ed5;
   color: $body-font-color;
-   background-color: $warning-color;
+  background-color: $warning-color;
 }
 
  
