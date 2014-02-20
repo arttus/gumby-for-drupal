@@ -77,30 +77,9 @@
 	</div> <!-- /#main-wrapper -->
 	
 	<footer id="footer" class="footer" role="footer">	
-<div class="row">
-	<div class="three columns">
-	 <h4 class="pane-title">Social</h4>
-	<p><a href="http://www.linkedin.com/in/travisc" target="_blank"><i class="icon-linkedin-circled scale-2x pretty"></i></a><a href="https://twitter.com/arttus" target="_blank"><i class="icon-twitter-circled scale-2x"></i></a><a href="https://github.com/arttus" target="_blank"><i class="icon-github-circled scale-2x"></i></a><a href="https://plus.google.com/+TravisChristopher" target="_blank"><i class="icon-gplus-circled scale-2x"></i></a></p>
-	</div>
-	
-	<div class="three columns">
-	<h4 class="pane-title">Contact Us</h4>
-	<p>63 Pearl St. Suite 130 <br/>Brooklyn, New York 11201<br>
-	347-915-5749</p>
-	</div>
-	
-	<div class="four columns">
-	<h4 class="pane-title">Start today</h4>
-	<p><a href="contact">Send a request</a> to get started today, operators are standing by. </p>
-	</div>
-	<div class="two columns padding_one">
-	<h4 class="pane-title"></h4>
-	<img src="/sites/all/themes/gumby/img/drupal-association.png">
-	</div>
-	</div>
 		<div class="row">
 	  <?php if ($copyright): ?>
-	    <small class="copyright">Copyright &copy; Arttus inc. All rights reserved <?php print $copyright; ?></small>
+	    <small class="copyright"><?php print $copyright; ?></small>
 	  <?php endif; ?><br/>
 	  </div>
 	</footer>
