@@ -1684,7 +1684,7 @@ table.rounded thead th, table.rounded thead td, table.rounded caption + tbody tr
 .breadcrumb li { float: left; }
 .breadcrumb li .divider { padding: 0 10px; }
 
-.btn { background-color: white; }
+.btn { padding: 0 14px !important; background-color: white; }
 
 .page-manager-ajax-pad .container-inline div, .page-manager-ajax-pad .container-inline label { display: block!important; }
 
@@ -1865,7 +1865,7 @@ table.package tr.disabling { background-color: white; }
 .vertical-tabs ul.vertical-tabs-list li.selected { background-color: white; }
 .vertical-tabs ul.vertical-tabs-list .selected strong { color: #555555; }
 
-#edit-select .container-inline div { display: block!important; }
+.vbo-views-form .container-inline div { display: block!important; }
 
 .form-type.select.form-item.status { background: none; }
 
@@ -1928,6 +1928,8 @@ tr.selected td { background: #ffc; }
 #navbar-administration .navbar-bar a span { color: white; }
 
 body.mceContentBody { background: #f2f2f2 !important; color: #555555 !important; }
+
+body.navbar-fixed #navbar-administration.navbar-oriented, #navbar-administration.navbar-oriented .navbar-bar, #navbar-administration.navbar-oriented .navbar-tray { left: 0; position: relative; right: 0; top: 0; }
 
 /* Icon Styles */
 .scale-lg { font-size: 1.3333333333333333em; line-height: 0.75em; vertical-align: -15%; }

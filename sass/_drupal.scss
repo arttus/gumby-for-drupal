@@ -12,7 +12,7 @@
 
 //some defaults for buttons
 .btn{
-	//padding: 0 14px!important;
+	padding: 0 14px!important;
 	//color:$body-font-color;
 	background-color: lighten($default-color, 20%);
 }
@@ -592,7 +592,7 @@ table.package tr.disabling {
 }
 
 //vbo
-#edit-select .container-inline div{
+.vbo-views-form .container-inline div{
 	display:block!important;
 }
 
@@ -742,4 +742,15 @@ tr.selected td {
 body.mceContentBody{
 	background:$default-color!important;
   color: $body-font-color!important; 
+}
+
+//fix bug with overlapping transparent div causing z-index issues
+// not sure if gumby is causing this or if this is a bug in navbar yet
+body.navbar-fixed #navbar-administration.navbar-oriented, 
+#navbar-administration.navbar-oriented .navbar-bar, 
+#navbar-administration.navbar-oriented .navbar-tray {
+left: 0;
+position: relative; //changed from absolute
+right: 0;
+top: 0;
 }

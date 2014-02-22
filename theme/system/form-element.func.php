@@ -99,8 +99,8 @@ $prefix = '';
     // Determine if "#input_group" was specified.
     if (!empty($element['#input_group'])) {
       $prefix .= '<div class="input-group">';
-      $prefix .= isset($element['#field_prefix']) ? '<span class="input group-addon">' . $element['#field_prefix'] . '</span>' : '';
-      $suffix .= isset($element['#field_suffix']) ? '<span class="input group-addon">' . $element['#field_suffix'] . '</span>' : '';
+      $prefix .= isset($element['#field_prefix']) ? '<span class="adjoined">' . $element['#field_prefix'] . '</span>' : '';
+      $suffix .= isset($element['#field_suffix']) ? '<span class="adjoined">' . $element['#field_suffix'] . '</span>' : '';
       $suffix .= '</div>';
     }
     else {
