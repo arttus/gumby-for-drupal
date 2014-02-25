@@ -764,8 +764,8 @@ body.mceContentBody{
     height: 16px;
     position: relative;
     top: 5px;
-    border: solid 1px #cccccc;
-    background: #fefefe;
+    border: solid 1px $body-font-color;
+    background: $default-color;
   }
   i.icon-dot,
   i.icon-check{
