@@ -744,13 +744,49 @@ body.mceContentBody{
   color: $body-font-color!important; 
 }
 
+/*.field.radio{
+  span{
+    float:left;
+  }
+}*/
+
+//adjust checkboxes and radios
+.field.radio span{
+  @include border-radius(8px, 8px)
+}
+
+.field.radio,
+.field.checkbox {
+  span{
+    float:left;
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    position: relative;
+    top: 5px;
+    border: solid 1px #cccccc;
+    background: #fefefe;
+  }
+  i.icon-dot,
+  i.icon-check{
+    position: relative;
+    top:-6px;
+    left:-8px;
+  }
+  label{
+    margin-left:25px;
+  }
+}
+
+
 //fix bug with overlapping transparent div causing z-index issues
 // not sure if gumby is causing this or if this is a bug in navbar yet
 body.navbar-fixed #navbar-administration.navbar-oriented, 
 #navbar-administration.navbar-oriented .navbar-bar, 
 #navbar-administration.navbar-oriented .navbar-tray {
-left: 0;
-position: relative; //changed from absolute
-right: 0;
-top: 0;
+  left: 0;
+  position: relative; //changed from absolute
+  right: 0;
+  top: 0;
 }
+

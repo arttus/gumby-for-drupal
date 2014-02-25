@@ -36,10 +36,12 @@ function gumby_form_element_label(&$variables) {
   elseif ($element['#title_display'] == 'invisible') {
     $attributes['class'][] = 'element-invisible';
   }
+/*
   if (!empty($element['#type'])) {
     $attributes['class'][] = strtr($element['#type']);
   }
   
+*/
   if (!empty($element['#id'])) {
     $attributes['for'] = $element['#id'];
   }

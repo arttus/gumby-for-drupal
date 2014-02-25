@@ -77,11 +77,11 @@ function gumby_form_element(&$variables) {
 
   if (!empty($element['#description'])) {
     $description = $element['#description'];
-    if (theme_get_setting('gumby_tooltip_enabled') && theme_get_setting('gumby_tooltip_descriptions') && $description === strip_tags($description) && strlen($description) <= 200) {
+   // if (theme_get_setting('gumby_tooltip_enabled') && theme_get_setting('gumby_tooltip_descriptions') && $description === strip_tags($description) && strlen($description) <= 200) {
       $tooltip = TRUE;
-      $attributes['gumby-toggle'] = 'tooltip';
-      $attributes['title'] = $description;
-    }
+      $attributes['class'] = 'ttip';
+      $attributes['data-tooltip'] = $description;
+   // }
   }
 
 
@@ -178,7 +178,7 @@ function gumby_radio($variables) {
   }
   _form_set_class($element, array('form-radio'));
 
-  return '<input' . drupal_attributes($element['#attributes']) . ' /><span><i class="icon-dot"></i></span>';
+  return '<input' . drupal_attributes($element['#attributes']) . ' /><span></span>';
 }
 
 /**
