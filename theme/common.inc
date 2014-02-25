@@ -123,7 +123,7 @@ function _gumby_icon($name) {
   if (empty($output)) {
     // Mimic the Icon API markup.
     $attributes = array(
-      'class' => array('icon-' . $name),
+      'class' => array($name),
       'aria-hidden' => 'true',
     );
     $output = '<i' . drupal_attributes($attributes) . '></i>';

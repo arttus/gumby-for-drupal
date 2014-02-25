@@ -1933,7 +1933,7 @@ body.mceContentBody { background: #f2f2f2 !important; color: #555555 !important;
 }*/
 .field.radio span { -webkit-border-radius: 8px 8px; -moz-border-radius: 8px / 8px; border-radius: 8px / 8px; }
 
-.field.radio span, .field.checkbox span { float: left; display: inline-block; width: 16px; height: 16px; position: relative; top: 5px; border: solid 1px #555555; background: #f2f2f2; }
+.field.radio span, .field.checkbox span { float: left; display: inline-block; width: 16px; height: 16px; position: relative; top: 5px; border: solid 1px #555555; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; }
 .field.radio i.icon-dot, .field.radio i.icon-check, .field.checkbox i.icon-dot, .field.checkbox i.icon-check { position: relative; top: -6px; left: -8px; }
 .field.radio label, .field.checkbox label { margin-left: 25px; }
 

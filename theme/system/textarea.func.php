@@ -8,7 +8,6 @@
  * Overrides theme_textarea().
  */
 
-/*
 function gumby_textarea($variables) {
   $element = $variables['element'];
   element_set_attributes($element, array('id', 'name', 'cols', 'rows'));
@@ -29,4 +28,3 @@ function gumby_textarea($variables) {
   $output .= '</div>';
   return $output;
 }
-*/

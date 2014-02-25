@@ -19,22 +19,5 @@ function gumby_preprocess_html(&$variables) {
     ),
   );
   
-  drupal_add_html_head($element, 'gumby_responsive');
-  
-/*
-  switch (theme_get_setting('gumby_navbar_position')) {
-    case 'fixed-top':
-      $variables['classes_array'][] = 'navbar-is-fixed-top';
-      break;
-
-    case 'fixed-bottom':
-      $variables['classes_array'][] = 'navbar-is-fixed-bottom';
-      break;
-
-    case 'static-top':
-      $variables['classes_array'][] = 'navbar-is-static-top';
-      break;
-  }
-*/
-
+  drupal_add_html_head($element, 'gumby_responsive');   
 }

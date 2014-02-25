@@ -765,7 +765,8 @@ body.mceContentBody{
     position: relative;
     top: 5px;
     border: solid 1px $body-font-color;
-    background: $default-color;
+    //background: $default-color;
+    @include border-radius(3px);
   }
   i.icon-dot,
   i.icon-check{

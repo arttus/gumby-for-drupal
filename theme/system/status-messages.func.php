@@ -19,7 +19,6 @@ function gumby_status_messages($variables) {
   );
 
   // Map Drupal message types to their corresponding gumby classes.
-  // @see http://twitter.github.com/gumby/components.html#alerts
   $status_class = array(
     'status' => 'success',
     'error' => 'danger',
