@@ -20,7 +20,7 @@ function gumby_menu_link(array $variables) {
     elseif ((!empty($element['#original_link']['depth'])) && ($element['#original_link']['depth'] == 1)) {
       // Add our own wrapper.
       unset($element['#below']['#theme_wrappers']);
-      $sub_menu = '<ul class="dropdown-menu">' . drupal_render($element['#below']) . '</ul>';
+      $sub_menu = '<div class="dropdown"><ul class="dropdown-menu">' . drupal_render($element['#below']) . '</ul></div>';
       // Generate as standard dropdown.
       $element['#title'] .= ' <span class="caret"></span>';
       $element['#attributes']['class'][] = 'dropdown';
@@ -29,7 +29,6 @@ function gumby_menu_link(array $variables) {
       // Set dropdown trigger element to # to prevent inadvertant page loading
       // when a submenu link is clicked.
       $element['#localized_options']['attributes']['data-target'] = '#';
-      $element['#localized_options']['attributes']['class'][] = 'dropdown-toggle';
       $element['#localized_options']['attributes']['gumby-toggle'] = 'dropdown';
     }
   }

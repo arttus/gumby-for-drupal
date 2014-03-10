@@ -32,7 +32,7 @@ function gumby_menu_local_action($variables) {
         $options['attributes']['class'] = explode(' ', $options['attributes']['class']);
       }
       $options['attributes']['class'][] = 'btn';
-      $options['attributes']['class'][] = 'icon-left ';
+      $options['attributes']['class'][] = 'icon-right-dir';
       $options['attributes']['class'][] = 'entypo';
       $options['attributes']['class'][] = 'pretty';
       $options['attributes']['class'][] = 'small';
